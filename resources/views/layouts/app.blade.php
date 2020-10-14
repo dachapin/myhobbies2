@@ -39,6 +39,9 @@
                         <li>
                             <a href="./info" class="nav-link {{ Request::is('info') ? 'active' : '' }}">Info</a>
                         </li>
+                        <li>
+                            <a href="./hobby" class="nav-link {{ Request::is('hobby*') ? 'active' : '' }}">Hobbies</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -78,6 +81,33 @@
         </nav>
 
         <main class="py-4">
+            @isset($message_success)
+            <div class="container">
+                <div class="alert alert-success" role="alert">
+                    {!! $message_success !!}
+                </div>
+            </div>
+            @endisset
+            @isset($message_warning)
+            <div class="container">
+                <div class="alert alert-warning" role="alert">
+                    {!! $message_warning !!}
+                </div>
+            </div>
+            @endisset
+            @if($errors->any())
+            <div class="container">
+                <div class="alert alert-danger" role="alert">
+                    <ul class="mb-0">
+                        @foreach($errors->all() as $error)
+                            <li>
+                                {!! $error !!}
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            @endif
             @yield('content')
         </main>
     </div>
