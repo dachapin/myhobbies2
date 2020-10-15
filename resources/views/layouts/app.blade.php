@@ -34,13 +34,16 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li>
-                            <a href="./" class="nav-link {{ Request::is('/') ? 'active' : '' }}">Start</a>
+                            <a href="{{ home_url() }}" class="nav-link {{ Request::is('/') ? 'active' : '' }}">Start</a>
                         </li>
                         <li>
-                            <a href="./info" class="nav-link {{ Request::is('info') ? 'active' : '' }}">Info</a>
+                            <a href="{{ home_url() }}/info" class="nav-link {{ Request::is('info') ? 'active' : '' }}">Info</a>
                         </li>
                         <li>
-                            <a href="./hobby" class="nav-link {{ Request::is('hobby*') ? 'active' : '' }}">Hobbies</a>
+                            <a href="{{ home_url() }}/hobby" class="nav-link {{ Request::is('hobby*') ? 'active' : '' }}">Hobbies</a>
+                        </li>
+                        <li>
+                            <a href="{{ home_url() }}/tag" class="nav-link {{ Request::is('tag*') ? 'active' : '' }}">Tags</a>
                         </li>
                     </ul>
 
